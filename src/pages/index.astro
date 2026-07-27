@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 const social = {
 	instagram: 'https://instagram.com/henka.estudio',
@@ -9,41 +10,43 @@ const social = {
 };
 ---
 
-<html lang='en'>
+<html lang='es'>
 	<head>
 		<meta charset='utf-8' />
 		<link rel='icon' href='/favicon.png' />
 
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
+		<Analytics />
+
 		<title>Henka - Sitio en construcción</title>
 	</head>
 	<body
 		class='min-h-screen bg-[#2e2520] text-[#e8ddd0] flex items-center justify-center px-6'
 	>
-		<main class='max-w-md w-full text-center'>
+		<main class='max-w-xl w-full text-center'>
 			<!-- Marca -->
 			<Image
 				src='https://res.cloudinary.com/dciovdqaf/image/upload/v1782582431/HENKA-logo-Redes_afqbxv.webp'
 				alt='Henka logo'
-				class='mx-auto mb-6 w-90'
+				class='mx-auto mb-10 sm:mb-14 w-70 sm:w-90'
 				decoding='async'
 				loading='lazy'
 				width={1332}
 				height={505}
 			/>
 
-			<!-- Signature: trazo que se "transforma" -->
-
-			<h1 class='font-sans text-3xl sm:text-4xl leading-tight mb-4'>
-				Estamos construyendo<br />algo nuevo
+			<h1
+				class='font-sans text-3xl sm:text-4xl leading-tight mb-8 sm:mb-10 text-balance'
+			>
+				Estamos construyendo<br />algo nuevo para vos.
 			</h1>
 
 			<p
-				class='text-[#B8ACA1] text-sm sm:text-base mb-10 leading-relaxed text-balance'
+				class='text-[#B8ACA1] text-xl sm:text-2xl mb-10 leading-relaxed text-balance'
 			>
-				Mientras tanto, encontranos en nuestras redes sociales o escribinos por
-				WhatsApp para cualquier consulta o ver el catálogo.
+				Mientras terminamos los últimos detalles, podés escribirnos por WhatsApp
+				o encontrarnos en nuestras redes para ver el catálogo y hacer tú pedido.
 			</p>
 
 			<!-- Redes -->
