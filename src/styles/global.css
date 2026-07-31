@@ -48,10 +48,14 @@
   /* Radios */
 
   --radius-henka: 4px;
-  /* border-radius-henka */
+  /* rounded-henka */
 }
 
 /* Uso Utility para combinar clases repetidas*/
 @utility card {
-  @apply rounded-lg shadow-xl;
+  @apply rounded-henka shadow-xl;
+}
+
+@utility label {
+  @apply text-sm uppercase tracking-[0.18em];
 }
