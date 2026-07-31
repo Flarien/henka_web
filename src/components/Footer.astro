@@ -6,37 +6,55 @@ import Container from './ui/Container.astro';
   <Container>
     <div class='grid gap-12 py-16 lg:grid-cols-3'>
       <div>
-        <h3 class='font-display text-3xl text-primary'>HENKA</h3>
+        <h3 class='font-display font-bold text-3xl text-primary'>HENKA</h3>
 
-        <p class='mt-4 '>
+        <p class='mt-4 text-pretty'>
           Especialistas en sublimación textil, DTF y productos personalizados.
         </p>
       </div>
 
       <div>
-        <h4 class='font-display uppercase mb-4'>Navegación</h4>
+        <h4 class='font-display uppercase font-semibold mb-4'>Navegación</h4>
 
-        <ul class='space-y-2 '>
-          <li><a href='/'>Inicio</a></li>
-          <li><a href='/galeria'>Galería</a></li>
-          <li><a href='/productos'>Productos</a></li>
-          <li><a href='/contacto'>Contacto</a></li>
+        <ul class='space-y-2'>
+          <li><a href='/' class='hover:text-primary'>Inicio</a></li>
+          <li><a href='/galeria' class='hover:text-primary'>Galería</a></li>
+          <li><a href='/productos' class='hover:text-primary'>Productos</a></li>
+          <li><a href='/contacto' class='hover:text-primary'>Contacto</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class='font-display uppercase mb-4'>Contacto</h4>
+        <h4 class='font-display font-semibold uppercase mb-4'>Contacto</h4>
 
         <p>Mar del Plata, Buenos Aires</p>
-
-        <p class='mt-2'>Atención con cita previa.</p>
+        <p class='mt-2'>
+          Whatsapp:
+          <a
+            href='https://wa.me/5492235710168'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='ml-1.5 hover:text-primary'
+          >
+            + 54 223 571 0168
+          </a>
+        </p>
+        <p class='mt-2'>
+          email:
+          <a
+            href='mailto:henka@gmail.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='ml-1.5 hover:text-primary'
+          >
+            henka@gmail.com
+          </a><!-- No tengo este email jaja-->
+        </p>
       </div>
     </div>
 
-    <div
-      class='border-t border-border py-6 text-center text-sm '
-    >
-      © {new Date().getFullYear()} HENKA · Transformación a través del oficio.
+    <div class='border-t border-border py-6 text-center text-sm'>
+      © {new Date().getFullYear()} HENKA · Transformamos ideas en productos.
     </div>
   </Container>
 </footer>
