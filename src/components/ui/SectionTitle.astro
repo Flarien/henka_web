@@ -10,10 +10,10 @@ const { title, subtitle, align = 'left' } = Astro.props;
 
 <div class={align === 'center' ? 'text-center' : ''}>
   <h2
-    class='font-display text-4xl md:text-5xl uppercase tracking-tight text-on-surface'
+    class='font-display text-4xl md:text-5xl uppercase tracking-tight text-text'
   >
     {title}
   </h2>
 
-  {subtitle && <p class='mt-3 max-w-2xl text-on-surface-variant'>{subtitle}</p>}
+  {subtitle && <p class='mt-3 max-w-2xl text-text-variant'>{subtitle}</p>}
 </div>

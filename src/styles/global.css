@@ -7,35 +7,51 @@
 @import "@fontsource/lato/400.css";
 @import "@fontsource/lato/700.css";
 
+
 @theme {
 
   /* Tipografías */
 
   --font-display: "Oswald", sans-serif;
+  /* font-display */
   --font-sans: "Lato", sans-serif;
+  /* font-sans */
 
-  /* Marca */
+  /* Colores */
 
   --color-primary: #c4522a;
+  /* color-primary */
   --color-primary-dark: #842600;
+  /* color-primary-dark */
 
   /* Fondos */
 
   --color-background: #1b110e;
+  /* bg-background */
   --color-surface: #291d19;
+  /* bg-surface */
   --color-surface-light: #3a2b25;
+  /* bg-surface-light */
 
   /* Texto */
 
   --color-text: #f4ded8;
+  /* text-text */
   --color-muted: #dfc0b7;
+  /* text-muted */
 
   /* Bordes */
 
   --color-border: #5a4036;
+  /* border-border */
 
+  /* Radios */
+
+  --radius-henka: 4px;
+  /* border-radius-henka */
 }
 
+/* Uso Utility para combinar clases repetidas*/
 @utility card {
   @apply rounded-lg shadow-xl;
 }
