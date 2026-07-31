@@ -1,30 +1,123 @@
 ---
-import Container from './ui/Container.astro';
+import { Image } from 'astro:assets';
 import Button from './ui/Button.astro';
+import Container from './ui/Container.astro';
+
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/galeria', label: 'Galería' },
+  { href: '/productos', label: 'Productos' },
+  { href: '/contacto', label: 'Contacto' },
+];
 ---
 
 <header
-  class='sticky top-0 z-50 border-b border-border-variant bg-background/90 backdrop-blur'
+  class='sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md'
 >
   <Container>
-    <div class='flex h-20 items-center justify-between'>
-      <a href='/' class='font-display text-3xl tracking-tight text-primary'>
-        HENKA
+    <div class='flex h-24 items-center justify-between'>
+      <!-- Logo -->
+
+      <a
+        href='/'
+        class='transition-opacity duration-200 hover:opacity-90 shrink-0'
+      >
+        <Image
+          src='/logo.webp'
+          alt='Logo Henka'
+          width={1332}
+          height={505}
+          class='h-12 lg:h-14 w-auto'
+        />
       </a>
 
-      <nav class='hidden gap-8 md:flex'>
-        <a href='/'>Inicio</a>
-        <a href='/galeria'>Galería</a>
-        <a href='/productos'>Productos</a>
-        <a href='/contacto'>Contacto</a>
-      </nav>
+      <!-- Desktop -->
 
-      <Button
-        href='https://wa.me/549223XXXXXXXX'
-        class='hidden md:inline-flex px-5 py-2 text-xs'
+      <div class='hidden items-center gap-5 lg:gap-8 md:flex'>
+        <nav class='flex items-center gap-5 lg:gap-8'>
+          {
+            links.map((link) => (
+              <a
+                href={link.href}
+                class:list={[
+                  'label relative pb-1 transition-colors hover:text-primary',
+                  'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full',
+                  currentPath === link.href && 'text-primary after:w-full',
+                ]}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class='h-6 w-px bg-border'></div>
+
+        <Button href='https://wa.me/5492235710168' class='px-6 py-3'>
+          WhatsApp
+        </Button>
+      </div>
+
+      <!-- Mobile button -->
+
+      <button
+        id='menuButton'
+        class='flex h-10 w-10 items-center justify-center md:hidden'
+        aria-label='Abrir menú'
       >
-        WhatsApp
-      </Button>
+        <svg
+          class='h-7 w-7'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          viewBox='0 0 24 24'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M4 6h16M4 12h16M4 18h16'></path>
+        </svg>
+      </button>
     </div>
   </Container>
+
+  <!-- Mobile menu -->
+
+  <div
+    id='mobileMenu'
+    class='hidden border-t border-border bg-background md:hidden'
+  >
+    <nav class='flex flex-col'>
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'label border-b border-border px-6 py-5 transition-colors hover:bg-surface hover:text-primary',
+              currentPath === link.href && 'text-primary',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+
+      <div class='p-6'>
+        <Button href='https://wa.me/549223XXXXXXXX' class='w-full'>
+          WhatsApp
+        </Button>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const button = document.getElementById('menuButton');
+  const menu = document.getElementById('mobileMenu');
+
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
