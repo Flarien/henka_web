@@ -42,8 +42,8 @@ const links = [
               <a
                 href={link.href}
                 class:list={[
-                  'label relative pb-1 transition-colors hover:text-primary',
-                  'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full',
+                  'label relative font-bold pb-1 transition-colors hover:text-primary',
+                  'after:absolute font-bold after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full',
                   currentPath === link.href && 'text-primary after:w-full',
                 ]}
               >
@@ -55,7 +55,11 @@ const links = [
 
         <div class='h-6 w-px bg-border'></div>
 
-        <Button href='https://wa.me/5492235710168' class='px-6 py-3'>
+        <Button
+          href='https://wa.me/5492235710168'
+          class='px-6 py-3'
+          target='_blank'
+        >
           WhatsApp
         </Button>
       </div>
@@ -105,7 +109,11 @@ const links = [
       }
 
       <div class='p-6'>
-        <Button href='https://wa.me/549223XXXXXXXX' class='w-full'>
+        <Button
+          href='https://wa.me/5492235710168'
+          class='w-full'
+          target='_blank'
+        >
           WhatsApp
         </Button>
       </div>

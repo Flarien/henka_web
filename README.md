@@ -16,3 +16,55 @@ lazy loading
 resize automático
 webp
 mejor Lighthouse
+
+
+
+------------------
+
+
+# 1° paso
+Inicio
+
+↓
+
+Hero
+
+↓
+
+Qué hacemos
+
+↓
+
+Productos destacados
+
+↓
+
+Trabajos realizados
+
+↓
+
+Contacto
+
+↓
+
+Footer
+
+
+
+
+
+
+
+____
+
+# 2° paso
+Agregar:
+
+catálogo completo
+filtros
+detalle de producto
+cómo trabajamos
+testimonios
+FAQ
+SEO específico para DTF
+etc.

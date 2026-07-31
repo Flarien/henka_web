@@ -3,9 +3,15 @@ interface Props {
   href?: string;
   variant?: 'primary' | 'secondary';
   class?: string;
+  target?: string;
 }
 
-const { href, variant = 'primary', class: className = '' } = Astro.props;
+const {
+  href,
+  variant = 'primary',
+  class: className = '',
+  target,
+} = Astro.props;
 
 const baseClasses =
   'inline-flex items-center justify-center rounded-henka border-b-2 px-4 py-3 md:px-6 lg:px-8 lg:py-4 label transition duration-200 ease-out hover:-translate-y-px hover:shadow-lg active:translate-y-px hover:border-primary-dark';
@@ -23,7 +29,7 @@ const classes = `${baseClasses} ${variants[variant]} ${className}`;
 
 {
   href ? (
-    <a href={href} class={classes}>
+    <a href={href} class={classes} {...(target && { target })}>
       <slot />
     </a>
   ) : (
