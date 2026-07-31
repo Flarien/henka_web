@@ -8,6 +8,34 @@
 @import "@fontsource/lato/700.css";
 
 @theme {
+
+  /* Tipografías */
+
   --font-display: "Oswald", sans-serif;
   --font-sans: "Lato", sans-serif;
+
+  /* Marca */
+
+  --color-primary: #c4522a;
+  --color-primary-dark: #842600;
+
+  /* Fondos */
+
+  --color-background: #1b110e;
+  --color-surface: #291d19;
+  --color-surface-light: #3a2b25;
+
+  /* Texto */
+
+  --color-text: #f4ded8;
+  --color-muted: #dfc0b7;
+
+  /* Bordes */
+
+  --color-border: #5a4036;
+
+}
+
+@utility card {
+  @apply rounded-lg shadow-xl;
 }

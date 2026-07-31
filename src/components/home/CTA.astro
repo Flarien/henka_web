@@ -1,0 +1,30 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+---
+
+<Section>
+  <Container>
+    <div
+      class='relative overflow-hidden rounded-lg bg-surface-container p-12 lg:p-20 text-center shadow-xl'
+    >
+      <h2 class='font-display text-4xl uppercase'>
+        ¿Listo para transformar tu idea?
+      </h2>
+
+      <p
+        class='mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-on-surface-variant'
+      >
+        Iniciá tu pedido hoy. Trabajamos con diseños propios o desarrollamos uno
+        desde cero para vos.
+      </p>
+
+      <div class='mt-10'>
+        <Button href='https://wa.me/549223XXXXXXXX'>
+          Hacé tu pedido por WhatsApp
+        </Button>
+      </div>
+    </div>
+  </Container>
+</Section>

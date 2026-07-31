@@ -1,0 +1,30 @@
+---
+import Container from './ui/Container.astro';
+import Button from './ui/Button.astro';
+---
+
+<header
+  class='sticky top-0 z-50 border-b border-outline-variant bg-background/90 backdrop-blur'
+>
+  <Container>
+    <div class='flex h-20 items-center justify-between'>
+      <a href='/' class='font-display text-3xl tracking-tight text-primary'>
+        HENKA
+      </a>
+
+      <nav class='hidden gap-8 md:flex'>
+        <a href='/'>Inicio</a>
+        <a href='/galeria'>Galería</a>
+        <a href='/productos'>Productos</a>
+        <a href='/contacto'>Contacto</a>
+      </nav>
+
+      <Button
+        href='https://wa.me/549223XXXXXXXX'
+        class='hidden md:inline-flex px-5 py-2 text-xs'
+      >
+        WhatsApp
+      </Button>
+    </div>
+  </Container>
+</header>

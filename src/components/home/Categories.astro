@@ -1,0 +1,25 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import CategoryCard from '../ui/CategoryCard.astro';
+
+import { categories } from '../../data/home';
+---
+
+<section class='mx-auto max-w-7xl px-6 py-20'>
+  <div
+    class='mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between'
+  >
+    <SectionTitle
+      title='Categorías destacadas'
+      subtitle='Equipamiento de alto rendimiento con diseño personalizado.'
+    />
+
+    <span class='text-sm uppercase tracking-[0.2em] text-primary'>
+      Nuestra especialidad
+    </span>
+  </div>
+
+  <div class='grid grid-cols-1 gap-6 md:grid-cols-12'>
+    {categories.map((category) => <CategoryCard {...category} />)}
+  </div>
+</section>

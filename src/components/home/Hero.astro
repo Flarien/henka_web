@@ -1,0 +1,43 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+
+const heroImage =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuDyzdGEsg67Vqzsbw_I1ANPcr5st-gMv0vkIcdbJAs7dywJ0tlDT5BVJpuXn3KKhDM5qLhfkaSfuvX9Yj9KjDU7Nh8XgGUoSbfsgqPHr5K2ZYHDLb51NN24jUHVFIPNG1TWl_Xc6t7BqvjgC0nYqJdWJVYPfgwdoQQgFKECFSMm2eExeNLvdYL9Am9VCvf58uI_DoSXEzME1dmqfRhKAFPFTpw9PdqymY260klJqOe2Tms7Nbkoq7itj11PnEMZC1hYQYu6c2kUbPdC';
+---
+
+<section class='relative min-h-screen flex items-center overflow-hidden'>
+  <img
+    src={heroImage}
+    alt='Hero HENKA'
+    class='absolute inset-0 w-full h-full object-cover opacity-40'
+  />
+
+  <div
+    class='absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent'
+  >
+  </div>
+
+  <div class='relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24'>
+    <div class='max-w-2xl'>
+      <Badge> Estudio de Sublimación </Badge>
+
+      <h1 class='mt-8 text-5xl md:text-7xl uppercase leading-none font-display'>
+        Transformamos tus ideas en
+        <span class='text-primary'> piezas únicas </span>
+      </h1>
+
+      <p class='mt-8 text-lg text-on-surface-variant max-w-xl leading-relaxed'>
+        Artesanía digital y técnica japonesa de transformación. Creamos
+        equipamiento personalizado para artes marciales, emprendedores y marcas
+        que buscan una calidad superior.
+      </p>
+
+      <div class='flex flex-wrap gap-4 mt-10'>
+        <Button href='/galeria'> Ver galería </Button>
+
+        <Button href='/contacto' variant='secondary'> Personalizar </Button>
+      </div>
+    </div>
+  </div>
+</section>
