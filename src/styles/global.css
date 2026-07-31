@@ -59,3 +59,7 @@
 @utility label {
   @apply text-sm uppercase tracking-[0.18em];
 }
+
+@utility colorTransition {
+  @apply transition-colors duration-200 hover:text-primary;
+}
