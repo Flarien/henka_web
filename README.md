@@ -67,4 +67,3 @@ cómo trabajamos
 testimonios
 FAQ
 SEO específico para DTF
-etc.

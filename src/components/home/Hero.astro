@@ -1,47 +1,192 @@
 ---
 import Button from '../ui/Button.astro';
 import Badge from '../ui/Badge.astro';
-import Section from '../ui/Section.astro';
-import Container from '../ui/Container.astro';
 
 const heroImage =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuDyzdGEsg67Vqzsbw_I1ANPcr5st-gMv0vkIcdbJAs7dywJ0tlDT5BVJpuXn3KKhDM5qLhfkaSfuvX9Yj9KjDU7Nh8XgGUoSbfsgqPHr5K2ZYHDLb51NN24jUHVFIPNG1TWl_Xc6t7BqvjgC0nYqJdWJVYPfgwdoQQgFKECFSMm2eExeNLvdYL9Am9VCvf58uI_DoSXEzME1dmqfRhKAFPFTpw9PdqymY260klJqOe2Tms7Nbkoq7itj11PnEMZC1hYQYu6c2kUbPdC';
+  'https://res.cloudinary.com/dciovdqaf/image/upload/v1785631350/HENKA_WEB/img_hero_web_ixab5s.webp';
 ---
 
-<Section class='relative min-h-screen flex items-center'>
-  <img
-    src={heroImage}
-    alt='Hero HENKA'
-    class='absolute inset-0 w-full h-full object-cover opacity-40'
-  />
-
+<div id='hero-wrapper' class='relative h-[200vh]'>
   <div
-    class='absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent'
+    class='sticky top-20 h-[calc(100vh-3.5rem)] flex items-center -translate-y-8 overflow-hidden'
   >
-  </div>
+    <img
+      src={heroImage}
+      alt='Hero HENKA'
+      class='absolute inset-0 w-full h-full object-cover hero-img-fade'
+    />
 
-  <div class='relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24'>
-    <div class='max-w-2xl'>
-      <Badge> Estudio de Sublimación </Badge>
+    <div
+      class='absolute inset-0 bg-linear-to-r from-background via-background/85 to-transparent'
+    >
+    </div>
 
-      <h1
-        class='mt-8 text-5xl md:text-7xl uppercase leading-tight font-display'
-      >
-        Transformamos tus ideas en
-        <span class='text-primary'> piezas únicas </span>
-      </h1>
+    <div class='relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24'>
+      <div class='max-w-2xl'>
+        <div class='hero-load-up' style='animation-delay: 0.4s'>
+          <Badge>Sublimación · DTF</Badge>
+        </div>
 
-      <p class='mt-8 text-xl max-w-xl leading-relaxed text-pretty'>
-        Artesanía digital y técnica japonesa de transformación. Creamos
-        equipamiento personalizado para artes marciales, emprendedores y marcas
-        que buscan una calidad superior.
-      </p>
+        <h1
+          class='mt-8 text-2xl md:text-4xl lg:text-5xl uppercase leading-tight font-display hero-load-left'
+          style='animation-delay: 0.6s'
+        >
+          Transformamos tus ideas en
+          <span class='text-primary ml-1.5'>piezas únicas</span>
+        </h1>
 
-      <div class='flex flex-wrap gap-4 mt-10'>
-        <Button href='/galeria'> Ver galería </Button>
+        <p
+          id='hero-desc'
+          class='mt-8 text-sm md:text-base lg:text-lg max-w-xl leading-relaxed text-pretty'
+        >
+          En HENKA creamos productos personalizados para personas, marcas y
+          eventos. Cada idea merece convertirse en algo especial: diseñamos
+          piezas sobre distintos materiales, combinando calidad, dedicación y
+          atención al detalle.
+        </p>
 
-        <Button href='/contacto' variant='secondary'> Personalizar </Button>
+        <div id='hero-buttons' class='flex flex-wrap gap-4 mt-8'>
+          <Button href='/galeria'>Ver trabajos</Button>
+          <Button href='/contacto' variant='secondary'>Hacer un pedido</Button>
+        </div>
       </div>
     </div>
+    <div
+      id='hero-arrow'
+      class='absolute bottom-4 left-1/2 -translate-x-1/2 hero-load-up'
+      style='animation-delay: 1s'
+    >
+      <svg
+        class='arrow-bounce'
+        width='32'
+        height='32'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        style='color: var(--color-primary)'
+      >
+        <path d='M12 5v14M5 12l7 7 7-7'></path>
+      </svg>
+    </div>
   </div>
-</Section>
+</div>
+
+<style>
+  /* Estados iniciales */
+  #hero-desc,
+  #hero-buttons {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* ── Imagen ── */
+  .hero-img-fade {
+    opacity: 0;
+    animation: fadeIn 1.4s ease-out 0.2s forwards;
+  }
+
+  /* ── Elementos que aparecen al cargar ── */
+  .hero-load-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: loadUp 0.7s ease-out forwards;
+  }
+
+  .hero-load-left {
+    opacity: 0;
+    transform: translateX(-48px);
+    animation: loadLeft 0.9s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes loadUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes loadLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ── Flecha animada ── */
+  .arrow-bounce {
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
+  /* ── Accesibilidad ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img-fade,
+    .hero-load-up,
+    .hero-load-left {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .arrow-bounce {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#hero-wrapper',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      })
+      .to('#hero-desc', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'none',
+      })
+      .to(
+        '#hero-buttons',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'none',
+        },
+        '>-0.3',
+      );
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+  });
+</script>
