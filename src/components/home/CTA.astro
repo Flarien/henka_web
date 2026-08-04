@@ -1,29 +1,33 @@
 ---
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
+import Paragraph from '../ui/Paragraph.astro';
 import Section from '../ui/Section.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
 ---
 
-<Section>
+<Section id='contacto' class='bg-primary/70 text-background'>
   <Container>
-    <div
-      class='relative overflow-hidden  bg-surface p-12 lg:p-20 text-center shadow-xl'
-    >
-      <h2 class='font-display text-4xl uppercase'>
-        ¿Listo para transformar tu idea?
-      </h2>
-
-      <p
-        class='mx-auto mt-6 max-w-2xl text-lg leading-relaxed '
-      >
+    <div class='text-center'>
+      <SectionTitle
+        title='¿Listo para transformar tu idea?'
+      />
+      <Paragraph class='mx-auto max-w-2xl font-bold'>
         Iniciá tu pedido hoy. Trabajamos con diseños propios o desarrollamos uno
-        desde cero para vos.
-      </p>
+        desde cero para vos. No dudes en consultarnos.
+      </Paragraph>
 
-      <div class='mt-10'>
-        <Button href='https://wa.me/549223XXXXXXXX'>
+      <div class='mt-10 flex flex-col items-center gap-4'>
+        <Button href='https://wa.me/5492235710168' variant='muted'>
           Hacé tu pedido por WhatsApp
         </Button>
+
+        <div class='flex gap-6 text-sm uppercase tracking-wide'>
+          <a href='https://instagram.com/henka.estudio' class='hover:underline text-muted'
+            >Instagram</a
+          >
+          <a href='mailto:hola@henka.ar' class='hover:underline text-muted'>Email</a>
+        </div>
       </div>
     </div>
   </Container>
