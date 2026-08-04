@@ -2,6 +2,7 @@
 import Container from '../ui/Container.astro';
 import Section from '../ui/Section.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
+import Paragraph from '../ui/Paragraph.astro';
 ---
 
 <Section class='bg-background border-y border-border/30'>
@@ -17,54 +18,45 @@ import SectionTitle from '../ui/SectionTitle.astro';
           <img
             src='https://lh3.googleusercontent.com/aida-public/AB6AXuB_l32feOo9ZQoDdJN9aE6T9ywSNY0ePoSL7WWGJfr6F-fEhm6NmiyOQhrdW7_8dV9ZEqyzFGsCV0JDjWlh1sZwiYJovEgW7H-cAKfY6xH7U90WFiwPZv4pLqrTHNw3iGpDlFCqceOZab4jQ4kszA7-r0S9kOICX0XmAiZ3jIXazeCKqAZ-9YFAPoWFZjP4-3_Mc9g3J_m2szXr3ocHv8ja4YCZWhU6_kDGsjEcTii0eOqoq5sWnP7I3_P425SPWiYt1pXxH2K74RAr'
             alt='Estudio HENKA'
-            class=' shadow-xl grayscale contrast-125'
+            class='shadow-xl grayscale contrast-125'
           />
         </div>
       </div>
 
       <div class='order-1 lg:order-2'>
-        <span class='text-secondary uppercase tracking-[0.2em] text-sm'>
-          Nuestra Historia
+        <span class='text-primary uppercase tracking-[0.2em] text-sm'>
+          EL TOQUE HUMANO
         </span>
 
         <div class='mt-4'>
-          <SectionTitle title='Artesanía desde Mar del Plata' />
+          <SectionTitle title='Diseño, técnica y atención al detalle' />
         </div>
 
-        <p class='mt-8 text-lg leading-relaxed '>
-          Henka nace de la pasión por el diseño y la disciplina de las artes
-          marciales. Operamos desde nuestro estudio en
-          <span class='text-primary'>Mar del Plata</span>, donde cada pieza es
-          tratada como una obra única.
-        </p>
+        <Paragraph>
+          En HENKA creemos que un buen producto personalizado empieza mucho
+          antes de imprimir. Escuchamos cada idea, elegimos la técnica más
+          adecuada y cuidamos cada etapa para lograr un resultado que realmente
+          represente a quien lo va a usar.
+        </Paragraph>
 
-        <p class='mt-6 leading-relaxed '>
-          No somos una imprenta masiva. Somos un taller de transformación que
-          busca capturar la esencia de tu academia, emprendimiento o marca en
-          productos que hablan de calidad y resistencia.
-        </p>
+        <Paragraph>
+          Trabajamos de forma personalizada, sin procesos masivos ni soluciones
+          genéricas. Ya sea una remera para una academia, un regalo único o
+          productos para una empresa, cada pedido recibe la misma atención desde
+          el diseño hasta la entrega.
+        </Paragraph>
 
-        <div
-          class='mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8'
-        >
+        <div class='mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8'>
           <div>
             <p class='font-display text-4xl text-primary'>100%</p>
 
-            <p
-              class='label text-sm '
-            >
-              Personalizado
-            </p>
+            <p class='label text-sm'>Personalizado</p>
           </div>
 
           <div>
-            <p class='font-display text-4xl text-primary'>Envío</p>
+            <p class='font-display text-4xl text-primary'>Made in</p>
 
-            <p
-              class='label text-sm '
-            >
-              Nacional
-            </p>
+            <p class='label text-sm'>Mar del Plata</p>
           </div>
         </div>
       </div>

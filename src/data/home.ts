@@ -11,17 +11,17 @@ export const categories: Coleccion[] = [
   {
     title: "Aikido",
     description:
-      "Remeras en algodón oscuro con diseño claro, y en tela técnica clara con diseño oscuro para entrenar. También en toallas y tazas.",
+      "Remeras de algodón y poliester, ideales para entrenar. También encontrarás toallas y tazas.",
     image: "/images/coleccion-aikido.png",
     layout: "large",
-    href: "/colecciones/aikido",
+    href: "/colecciones",
   },
   {
     title: "Argentina",
-    description: "Remeras, buzos, taza y mate con los colores de siempre.",
+    description: "Remeras, buzos, tazas y mates con nuestros colores.",
     image: "/images/coleccion-argentina.png",
     layout: "small",
-    href: "/colecciones/argentina",
+    href: "/colecciones",
   },
   {
     title: "Personalizados",
@@ -29,6 +29,6 @@ export const categories: Coleccion[] = [
       "Contanos qué tenés en mente y lo convertimos en una pieza única, sin mínimos.",
     image: "/images/coleccion-personalizados.jpg",
     layout: "wide",
-    href: "/colecciones/personalizados",
+    href: "/colecciones",
   },
 ];
