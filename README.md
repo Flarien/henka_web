@@ -31,6 +31,10 @@ Hero
 
 ↓
 
+Colecciones
+
+↓
+
 Qué hacemos
 
 ↓
@@ -39,7 +43,7 @@ Productos destacados
 
 ↓
 
-Trabajos realizados
+Últimos trabajos
 
 ↓
 

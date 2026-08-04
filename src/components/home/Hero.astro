@@ -12,7 +12,9 @@ const heroImage =
   >
     <img
       src={heroImage}
-      alt='Hero HENKA'
+      alt='Imagen del Hero HENKA, una remera oscura manga larga con un diseño de Aikido estampado en el frente'
+      fetchpriority='high'
+      decoding='async'
       class='absolute inset-0 w-full h-full object-cover hero-img-fade'
     />
 
@@ -23,13 +25,13 @@ const heroImage =
 
     <div class='relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24'>
       <div class='max-w-2xl'>
-        <div class='hero-load-up' style='animation-delay: 0.4s'>
+        <div class='hero-load-up' style='animation-delay: 0.5s'>
           <Badge>Sublimación · DTF</Badge>
         </div>
 
         <h1
-          class='mt-6 text-4xl md:text-5xl lg:text-6xl uppercase leading-tight font-display hero-load-left'
-          style='animation-delay: 0.6s'
+          class='mt-6 text-4xl md:text-5xl lg:text-6xl uppercase lg:font-semibold leading-tight font-display hero-load-left'
+          style='animation-delay: 0.7s'
         >
           Transformamos tus ideas en
           <span class='text-primary ml-1.5'>piezas únicas</span>
@@ -53,7 +55,7 @@ const heroImage =
     </div>
     <div
       id='hero-arrow'
-      class='absolute bottom-22 md:bottom-8 lg:bottom-4 left-1/2 -translate-x-1/2 hero-load-up'
+      class='absolute bottom-22 md:bottom-8 lg:bottom-3 left-1/2 -translate-x-1/2 hero-load-up'
       style='animation-delay: 1s'
     >
       <svg
@@ -91,13 +93,13 @@ const heroImage =
   /* ── Elementos que aparecen al cargar ── */
   .hero-load-up {
     opacity: 0;
-    transform: translateY(20px);
-    animation: loadUp 0.7s ease-out forwards;
+    transform: translateY(40px);
+    animation: loadUp 0.9s ease-out forwards;
   }
 
   .hero-load-left {
     opacity: 0;
-    transform: translateX(-48px);
+    transform: translateX(-100px);
     animation: loadLeft 0.9s ease-out forwards;
   }
 

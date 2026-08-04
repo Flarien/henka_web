@@ -6,6 +6,6 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<section class={`mx-auto px-6 py-20 md:py-28 overflow-hidden ${className}`}>
+<section class={`mx-auto max-w- px-6 py-20 md:py-28 overflow-hidden ${className}`}>
   <slot />
 </section>

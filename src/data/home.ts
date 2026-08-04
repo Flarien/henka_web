@@ -1,4 +1,4 @@
-export interface Category {
+export interface Colecciones {
   title: string;
   description: string;
   image: string;
@@ -7,7 +7,7 @@ export interface Category {
   href?: string;
 }
 
-export const categories: Category[] = [
+export const categories: Colecciones[] = [
   {
     title: "Remeras",
     description:

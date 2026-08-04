@@ -1,7 +1,7 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import Section from '../ui/Section.astro';
-import CategoryCard from '../ui/CategoryCard.astro';
+import ColeccionesCard from '../ui/ColeccionesCard.astro';
 
 import { categories } from '../../data/home';
 ---
@@ -21,6 +21,6 @@ import { categories } from '../../data/home';
   </div>
 
   <div class='grid grid-cols-1 gap-6 md:grid-cols-12'>
-    {categories.map((category) => <CategoryCard {...category} />)}
+    {categories.map((category) => <ColeccionesCard {...category} />)}
   </div>
 </Section>

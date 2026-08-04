@@ -1,0 +1,35 @@
+---
+import Container from '../ui/Container.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Section from '../ui/Section.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+---
+
+<Section>
+  <div
+    class='bg-primary/10 rounded-2xl p-6 md:p-12 flex flex-col md:flex-row flex-wrap gap-6 md:gap-12 items-center justify-between'
+  >
+    <div class='flex-1'>
+      <SectionTitle title='Diseño, impresión y personalización' />
+      <div class='mt-4 h-0.5 w-24 bg-primary'></div>
+
+      <Paragraph>
+        <span class='text-primary font-semibold'>¿Cómo trabaja HENKA?</span><br
+        />
+        Cada proyecto comienza con una idea y termina en un producto pensado para
+        durar. Trabajamos con tiempos reales, atención personalizada y un cuidado
+        especial por los materiales y las terminaciones.
+      </Paragraph>
+    </div>
+
+    <div
+      class='border-primary border-2 w-52 lg:w-60 h-auto overflow-hidden shrink-0'
+    >
+      <img
+        src='/images/20260803_165153.jpg'
+        alt='Mujer trabajando de espaldas con una remera negra HENKA estampada, sublimando una pieza en un taller'
+        class='w-full h-full grayscale object-cover'
+      />
+    </div>
+  </div>
+</Section>
