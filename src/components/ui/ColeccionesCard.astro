@@ -25,13 +25,13 @@ const layoutClasses = {
 
 const gradient =
   layout === 'wide'
-    ? 'bg-gradient-to-r from-surface-container-lowest to-transparent'
-    : 'bg-gradient-to-t from-surface-container-lowest to-transparent';
+    ? 'bg-gradient-to-r from-background to-transparent'
+    : 'bg-gradient-to-t from-background to-transparent';
 ---
 
 <a
   href={href}
-  class={`group relative overflow-hidden  bg-surface shadow-xl ${layoutClasses[layout]}`}
+  class={`group relative overflow-hidden bg-surface shadow-xl ${layoutClasses[layout]}`}
 >
   <img
     src={image}
@@ -50,7 +50,7 @@ const gradient =
   >
     {
       badge && (
-        <span class='inline-block mb-4 bg-secondary-container text-on-secondary-container px-3 py-1 text-xs uppercase tracking-[0.18em]'>
+        <span class='inline-block mb-4 bg-primary text-background px-3 py-1 text-xs uppercase tracking-[0.18em]'>
           {badge}
         </span>
       )
@@ -60,15 +60,13 @@ const gradient =
       {title}
     </h3>
 
-    <p class='mt-3 max-w-md  leading-relaxed'>
+    <p class='mt-3 max-w-md leading-relaxed text-muted'>
       {description}
     </p>
 
     {
       layout === 'wide' && (
-        <span class='mt-6 label text-primary text-sm'>
-          Ver colección →
-        </span>
+        <span class='mt-6 label text-primary text-sm'>Ver colección →</span>
       )
     }
   </div>

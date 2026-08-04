@@ -1,26 +1,29 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import Section from '../ui/Section.astro';
+import Container from '../ui/Container.astro';
 import ColeccionesCard from '../ui/ColeccionesCard.astro';
 
 import { categories } from '../../data/home';
 ---
 
-<Section class='max-w-7xl'>
-  <div
-    class='mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between'
-  >
-    <SectionTitle
-      title='Categorías destacadas'
-      subtitle='Equipamiento de alto rendimiento con diseño personalizado.'
-    />
+<Section>
+  <Container>
+    <div
+      class='mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between'
+    >
+      <SectionTitle
+        title='Descubrí nuestras colecciones'
+        subtitle='Cada colección cuenta su propia historia.'
+      />
 
-    <span class='text-sm uppercase tracking-[0.2em] text-primary'>
-      Nuestra especialidad
-    </span>
-  </div>
+      <span class='text-sm uppercase tracking-[0.2em] text-primary'>
+        Hecho a medida
+      </span>
+    </div>
 
-  <div class='grid grid-cols-1 gap-6 md:grid-cols-12'>
-    {categories.map((category) => <ColeccionesCard {...category} />)}
-  </div>
+    <div class='grid grid-cols-1 gap-6 md:grid-cols-12'>
+      {categories.map((category) => <ColeccionesCard {...category} />)}
+    </div>
+  </Container>
 </Section>
