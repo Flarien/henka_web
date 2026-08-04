@@ -6,27 +6,28 @@ import Section from '../ui/Section.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 ---
 
-<Section id='contacto' class='bg-primary/70 text-background'>
+<Section id='contacto' class='bg-primary/20 text-background'>
   <Container>
     <div class='text-center'>
-      <SectionTitle
-        title='¿Listo para transformar tu idea?'
-      />
-      <Paragraph class='mx-auto max-w-2xl font-bold'>
-        Iniciá tu pedido hoy. Trabajamos con diseños propios o desarrollamos uno
-        desde cero para vos. No dudes en consultarnos.
+      <SectionTitle title='¿Tenés una idea en mente?' />
+      <Paragraph class='mx-auto'>
+        Contanos qué querés crear y te ayudamos a encontrar la mejor forma de
+        hacerlo realidad.
       </Paragraph>
 
       <div class='mt-10 flex flex-col items-center gap-4'>
-        <Button href='https://wa.me/5492235710168' variant='muted'>
-          Hacé tu pedido por WhatsApp
+        <Button href='https://wa.me/5492235710168' variant='primary'>
+          Contactar vía WhatsApp
         </Button>
 
         <div class='flex gap-6 text-sm uppercase tracking-wide'>
-          <a href='https://instagram.com/henka.estudio' class='hover:underline text-muted'
-            >Instagram</a
+          <a
+            href='https://instagram.com/henka.estudio'
+            class='hover:underline text-muted'>Instagram</a
           >
-          <a href='mailto:hola@henka.ar' class='hover:underline text-muted'>Email</a>
+          <a href='mailto:hola@henka.ar' class='hover:underline text-muted'
+            >Email</a
+          >
         </div>
       </div>
     </div>
