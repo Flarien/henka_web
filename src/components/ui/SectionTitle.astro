@@ -3,14 +3,15 @@ interface Props {
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
+  class?: string;
 }
 
-const { title, subtitle, align = 'left' } = Astro.props;
+const { title, subtitle, align = 'left', class: sectionTitleClass } = Astro.props;
 ---
 
 <div class={align === 'center' ? 'text-center' : ''}>
   <h2
-    class='font-display text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-text'
+    class={sectionTitleClass || 'font-display text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-text'}
   >
     {title}
   </h2>
