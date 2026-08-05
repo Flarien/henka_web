@@ -63,3 +63,24 @@ export const gallery: GalleryItem[] = [
     featured: true,
   },
 ];
+
+export const collectionMeta: Record<string, { title: string; description: string }> = {
+  todo: {
+    title: 'Trabajos realizados y colecciones',
+    description:
+      'Una selección de piezas desarrolladas en HENKA. Cada trabajo refleja un proceso de diseño, impresión y personalización pensado para durar.',
+  },
+  aikido: {
+    title: 'Colección Aikido',
+    description:
+      'Remeras, buzos, toallas y tazas pensados para la práctica y el día a día de quienes viven el Aikido.',
+  },
+  argentina: {
+    title: 'Colección Argentina',
+    description: 'Remeras, buzos, taza y mate con los colores de siempre.',
+  },
+  personalizados: {
+    title: 'Personalizados',
+    description: 'Piezas hechas a pedido, fuera de nuestras colecciones fijas.',
+  },
+};

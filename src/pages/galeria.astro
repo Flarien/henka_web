@@ -4,17 +4,51 @@ import GalleryHero from '../components/gallery/GalleryHero.astro';
 import Container from '../components/ui/Container.astro';
 import Section from '../components/ui/Section.astro';
 import Layout from '../layouts/Layout.astro';
-
-const collectionParam = Astro.url.searchParams.get('coleccion');
-const collection = collectionParam?.trim().toLowerCase() || null;
+import { collectionMeta } from '../data/gallery';
 ---
 
 <Layout title='GALERÍA | HENKA'>
-  <GalleryHero collection={collection} />
+  <GalleryHero />
 
   <Section>
     <Container>
-      <GalleryGrid collection={collection} />
+      <GalleryGrid />
     </Container>
   </Section>
 </Layout>
+
+<script define:vars={{ collectionMeta }}>
+  const params = new URLSearchParams(window.location.search);
+  const active = (params.get('coleccion') || '').trim().toLowerCase() || 'todo';
+  const meta = collectionMeta[active] || collectionMeta.todo;
+
+  const heading = document.getElementById('gallery-heading');
+  if (heading) {
+    const titleEl = heading.querySelector('h2');
+    const descEl = heading.querySelector('p');
+    if (titleEl) titleEl.textContent = meta.title;
+    if (descEl) descEl.textContent = meta.description;
+  }
+
+  document
+    .querySelectorAll('#gallery-filters [data-filter-value]')
+    .forEach((link) => {
+      const value = (
+        link.getAttribute('data-filter-value') || ''
+      ).toLowerCase();
+      const isActive = value === active;
+      link.classList.toggle('bg-primary', isActive);
+      link.classList.toggle('border-primary', isActive);
+      link.classList.toggle('text-white', isActive);
+      link.classList.toggle('border-border', !isActive);
+      link.classList.toggle('text-muted', !isActive);
+    });
+
+  document.querySelectorAll('#gallery-grid .gallery-item').forEach((item) => {
+    const itemCollection = (
+      item.getAttribute('data-collection') || ''
+    ).toLowerCase();
+    const visible = active === 'todo' || itemCollection === active;
+    item.classList.toggle('hidden', !visible);
+  });
+</script>

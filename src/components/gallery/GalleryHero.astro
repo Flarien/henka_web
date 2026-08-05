@@ -4,8 +4,6 @@ import Paragraph from '../ui/Paragraph.astro';
 import Section from '../ui/Section.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 
-const currentCollection = Astro.url.searchParams.get('coleccion') ?? 'todo';
-
 const filters = [
   { label: 'Todo', value: 'todo' },
   { label: 'Aikido', value: 'aikido' },
@@ -16,54 +14,26 @@ const filters = [
 
 <Section>
   <Container>
-    <span class='label text-primary'> Galería </span>
+    <span class='label text-primary'>Galería</span>
 
-    <SectionTitle title='Trabajos realizados y colecciones' />
-
-    <Paragraph>
-      Una selección de piezas desarrolladas en HENKA. Cada trabajo refleja un
-      proceso de diseño, impresión y personalización pensado para durar.
-    </Paragraph>
-
-    <div id='gallery-filters' class='mt-10 flex flex-wrap gap-3' data-active-collection={currentCollection}>
-      {
-        filters.map((filter) => (
-          <a
-            data-filter-value={filter.value}
-            href={
-              filter.value === 'todo'
-                ? '/galeria'
-                : `/galeria?coleccion=${filter.value}`
-            }
-            class='rounded-henka border px-5 py-2 label transition-all duration-200 border-border text-muted hover:border-primary hover:text-text'
-          >
-            {filter.label}
-          </a>
-        ))
-      }
+    <div id='gallery-heading'>
+      <SectionTitle title='Trabajos realizados y colecciones' />
+      <Paragraph>
+        Una selección de piezas desarrolladas en HENKA. Cada trabajo refleja un
+        proceso de diseño, impresión y personalización pensado para durar.
+      </Paragraph>
     </div>
 
-    <script is:inline>
-      (() => {
-        const filters = document.getElementById('gallery-filters');
-        if (!filters) return;
-
-        const params = new URLSearchParams(window.location.search);
-        const activeCollection = (params.get('coleccion') || '').trim().toLowerCase() || 'todo';
-
-        filters.querySelectorAll('[data-filter-value]').forEach((link) => {
-          const value = (link.getAttribute('data-filter-value') || '').toLowerCase();
-          const isActive = value === activeCollection;
-
-          link.classList.toggle('bg-primary', isActive);
-          link.classList.toggle('border-primary', isActive);
-          link.classList.toggle('text-white', isActive);
-          link.classList.toggle('border-border', !isActive);
-          link.classList.toggle('text-muted', !isActive);
-          link.classList.toggle('hover:border-primary', !isActive);
-          link.classList.toggle('hover:text-text', !isActive);
-        });
-      })();
-    </script>
+    <div id='gallery-filters' class='mt-10 flex flex-wrap gap-3'>
+      {filters.map((filter) => (
+        <a
+          data-filter-value={filter.value}
+          href={filter.value === 'todo' ? '/galeria' : `/galeria?coleccion=${filter.value}`}
+          class='rounded-henka border px-5 py-2 label transition-all duration-200 border-border text-muted hover:border-primary hover:text-text'
+        >
+          {filter.label}
+        </a>
+      ))}
+    </div>
   </Container>
 </Section>
