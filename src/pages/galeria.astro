@@ -1,10 +1,20 @@
 ---
-// Layout
+import GalleryGrid from '../components/gallery/GalleryGrid.astro';
+import GalleryHero from '../components/gallery/GalleryHero.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
 import Layout from '../layouts/Layout.astro';
 
-
+const collectionParam = Astro.url.searchParams.get('coleccion');
+const collection = collectionParam?.trim().toLowerCase() || null;
 ---
 
 <Layout title='GALERÍA | HENKA'>
+  <GalleryHero collection={collection} />
 
+  <Section>
+    <Container>
+      <GalleryGrid collection={collection} />
+    </Container>
+  </Section>
 </Layout>

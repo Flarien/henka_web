@@ -1,0 +1,48 @@
+---
+import { gallery } from '../../data/gallery';
+import GalleryCard from './GalleryCard.astro';
+
+interface Props {
+  collection?: string | null;
+}
+
+const { collection: selectedCollection } = Astro.props;
+const normalizedSelectedCollection =
+  typeof selectedCollection === 'string'
+    ? selectedCollection.trim().toLowerCase()
+    : null;
+const collection =
+  normalizedSelectedCollection ||
+  Astro.url.searchParams.get('coleccion')?.trim().toLowerCase() ||
+  'todo';
+---
+
+<div
+  id='gallery-grid'
+  class='grid gap-8 md:grid-cols-2 lg:grid-cols-3'
+  data-active-collection={collection}
+>
+  {gallery.map((item) => (
+    <div class='gallery-item' data-collection={item.collection}>
+      <GalleryCard item={item} />
+    </div>
+  ))}
+</div>
+
+<script is:inline>
+  (() => {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const activeCollection = (params.get('coleccion') || '').trim().toLowerCase() || 'todo';
+
+    grid.setAttribute('data-active-collection', activeCollection);
+
+    grid.querySelectorAll('.gallery-item').forEach((item) => {
+      const itemCollection = (item.getAttribute('data-collection') || '').toLowerCase();
+      const isVisible = activeCollection === 'todo' || itemCollection === activeCollection;
+      item.style.display = isVisible ? '' : 'none';
+    });
+  })();
+</script>

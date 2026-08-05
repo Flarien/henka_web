@@ -14,14 +14,14 @@ export const categories: Coleccion[] = [
       "Remeras de algodón y poliester, ideales para entrenar. También encontrarás toallas y tazas.",
     image: "/images/coleccion-aikido.png",
     layout: "large",
-    href: "/colecciones",
+    href: "/galeria?coleccion=aikido",
   },
   {
     title: "Argentina",
     description: "Remeras, buzos, tazas y mates con nuestros colores.",
     image: "/images/coleccion-argentina.png",
     layout: "small",
-    href: "/colecciones",
+    href: "/galeria?coleccion=argentina",
   },
   {
     title: "Personalizados",
@@ -29,6 +29,6 @@ export const categories: Coleccion[] = [
       "Contanos qué tenés en mente y lo convertimos en una pieza única, sin mínimos.",
     image: "/images/coleccion-personalizados.jpg",
     layout: "wide",
-    href: "/colecciones",
+    href: "/galeria?coleccion=personalizados",
   },
 ];
