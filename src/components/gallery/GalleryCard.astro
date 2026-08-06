@@ -1,42 +1,78 @@
 ---
-import Badge from "../ui/Badge.astro";
+import Badge from '../ui/Badge.astro';
 
 const { item } = Astro.props;
 ---
 
-<a href={`/galeria/${item.slug}`}>
-  <article
-    class='group overflow-hidden border border-border bg-surface rounded-henka'
+<article
+  class='group overflow-hidden border border-border bg-surface rounded-henka'
+>
+  <button
+    type='button'
+    data-open-gallery={item.slug}
+    class='block w-full text-left'
   >
     <div class='overflow-hidden'>
       <img
-        src={item.image}
+        src={item.image[0]}
         alt={item.title}
-        class='aspect-4/5
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-105'
+        class='w-full h-auto transition-transform duration-500 group-hover:scale-105'
+        loading='lazy'
       />
     </div>
 
     <div class='p-6'>
       {item.badge && <Badge>{item.badge}</Badge>}
-
-      <h3 class='mt-4 font-display text-2xl uppercase'>
-        {item.title}
-      </h3>
-
-      <p class='mt-2 text-muted'>
-        {item.collectionLabel}
-      </p>
-
+      <h3 class='mt-4 font-display text-2xl uppercase'>{item.title}</h3>
+      <p class='mt-2 text-muted'>{item.collectionLabel}</p>
       <p class='mt-5 text-sm text-muted'>
-        {item.material} 
-        {' · '} 
+        {item.material}
+        {' · '}
         {item.technique}
       </p>
     </div>
-  </article>
-</a>
+  </button>
+</article>
+
+<dialog
+  id={`modal-${item.slug}`}
+  class='m-auto w-[90vw] max-w-2xl border border-border bg-surface p-0 text-text backdrop:bg-background/90'
+>
+  <div class='flex overflow-x-auto snap-x snap-mandatory scrollbar-hide'>
+    {
+      item.image.map((img: string) => (
+        <img
+          src={img}
+          alt={item.title}
+          class='w-full shrink-0 snap-center h-auto object-cover'
+        />
+      ))
+    }
+  </div>
+
+  {
+    item.image.length > 1 && (
+      <p class='mt-2 text-center text-xs text-muted'>
+        Deslizá para ver más ángulos →
+      </p>
+    )
+  }
+
+  <div class='p-6'>
+    {item.badge && <Badge>{item.badge}</Badge>}
+    <h3 class='mt-4 font-display text-2xl uppercase'>{item.title}</h3>
+    <p class='mt-2 text-muted'>{item.collectionLabel}</p>
+    <p class='mt-4 leading-relaxed'>{item.description}</p>
+    <p class='mt-4 text-sm text-muted'>
+      {item.material}
+      {' · '}
+      {item.technique}
+    </p>
+    <form method='dialog' class='mt-6'>
+      <button
+        class='text-sm uppercase tracking-wide text-muted hover:text-primary'
+        >Cerrar</button
+      >
+    </form>
+  </div>
+</dialog>

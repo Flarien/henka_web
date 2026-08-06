@@ -1,48 +1,39 @@
 ---
 import { gallery } from '../../data/gallery';
 import GalleryCard from './GalleryCard.astro';
-
-interface Props {
-  collection?: string | null;
-}
-
-const { collection: selectedCollection } = Astro.props;
-const normalizedSelectedCollection =
-  typeof selectedCollection === 'string'
-    ? selectedCollection.trim().toLowerCase()
-    : null;
-const collection =
-  normalizedSelectedCollection ||
-  Astro.url.searchParams.get('coleccion')?.trim().toLowerCase() ||
-  'todo';
 ---
 
-<div
-  id='gallery-grid'
-  class='grid gap-8 md:grid-cols-2 lg:grid-cols-3'
-  data-active-collection={collection}
->
-  {gallery.map((item) => (
-    <div class='gallery-item' data-collection={item.collection}>
-      <GalleryCard item={item} />
-    </div>
-  ))}
+<div id='gallery-grid' class='columns-1 gap-8 sm:columns-2 lg:columns-3'>
+  {
+    gallery.map((item) => (
+      <div
+        class='gallery-item mb-8 break-inside-avoid'
+        data-collection={item.collection}
+      >
+        <GalleryCard item={item} />
+      </div>
+    ))
+  }
 </div>
 
-<script is:inline>
-  (() => {
-    const grid = document.getElementById('gallery-grid');
-    if (!grid) return;
-
-    const params = new URLSearchParams(window.location.search);
-    const activeCollection = (params.get('coleccion') || '').trim().toLowerCase() || 'todo';
-
-    grid.setAttribute('data-active-collection', activeCollection);
-
-    grid.querySelectorAll('.gallery-item').forEach((item) => {
-      const itemCollection = (item.getAttribute('data-collection') || '').toLowerCase();
-      const isVisible = activeCollection === 'todo' || itemCollection === activeCollection;
-      item.style.display = isVisible ? '' : 'none';
+<script>
+  document
+    .querySelectorAll<HTMLButtonElement>('[data-open-gallery]')
+    .forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const slug = btn.getAttribute('data-open-gallery');
+        const dialog = document.getElementById(
+          `modal-${slug}`,
+        ) as HTMLDialogElement | null;
+        dialog?.showModal();
+      });
     });
-  })();
+
+  document
+    .querySelectorAll<HTMLDialogElement>('dialog[id^="modal-"]')
+    .forEach((dialog) => {
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    });
 </script>

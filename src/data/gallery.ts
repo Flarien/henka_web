@@ -9,7 +9,7 @@ export interface GalleryItem {
 
   description: string;
 
-  image: string;
+  image: string[];
 
   material?: string;
 
@@ -32,7 +32,7 @@ export const gallery: GalleryItem[] = [
 
     description: "Remera deportiva personalizada para la práctica de Aikido.",
 
-    image: "/images/coleccion-aikido.png",
+    image: ["/images/coleccion-aikido.png", "/images/buzo-argentina.png"],
 
     material: "Algodón",
 
@@ -52,7 +52,7 @@ export const gallery: GalleryItem[] = [
 
     description: "Buzo canguro sublimado de edición nacional.",
 
-    image: "/images/buzo-argentina.png",
+    image: ["/images/buzo-argentina.png"],
 
     material: "Poliéster",
 
