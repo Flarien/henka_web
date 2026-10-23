@@ -7,7 +7,73 @@
 @import "@fontsource/lato/400.css";
 @import "@fontsource/lato/700.css";
 
+
 @theme {
+
+  /* Tipografías */
+
   --font-display: "Oswald", sans-serif;
+  /* font-display */
   --font-sans: "Lato", sans-serif;
+  /* font-sans */
+
+  /* Colores */
+
+  --color-primary: #c4522a;
+  /* color-primary */
+  --color-primary-dark: #842600;
+  /* color-primary-dark */
+
+  /* Fondos */
+
+  --color-background: #1b110e;
+  /* bg-background */
+  --color-surface: #291d19;
+  /* bg-surface */
+  --color-surface-light: #3a2b25;
+  /* bg-surface-light */
+
+  /* Texto */
+
+  --color-text: #f4ded8;
+  /* text-text */
+  --color-muted: #dfc0b7;
+  /* text-muted */
+
+  /* Bordes */
+
+  --color-border: #5a4036;
+  /* border-border */
+
+  /* Radios */
+
+  --radius-henka: 4px;
+  /* rounded-henka */
+}
+
+/* Uso Utility para combinar clases repetidas*/
+@utility card {
+  @apply rounded-henka shadow-xl;
+}
+
+@utility label {
+  @apply text-sm uppercase tracking-[0.18em];
+}
+
+@utility colorTransition {
+  @apply transition-colors duration-200 hover:text-primary;
+}
+
+@layer components {
+  .garment-stage {
+    background:
+      radial-gradient(ellipse at 50% 45%,
+        color-mix(in srgb, var(--color-primary) 30%, transparent),
+        transparent 60%),
+      var(--color-background);
+  }
+
+  .garment-glow {
+    filter: drop-shadow(0 0 24px color-mix(in srgb, var(--color-primary) 45%, transparent));
+  }
 }

@@ -1,0 +1,65 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Paragraph from '../ui/Paragraph.astro';
+---
+
+<Section class='bg-background border-y border-border/30'>
+  <Container>
+    <div class='grid gap-16 lg:grid-cols-2 items-center'>
+      <div class='order-2 lg:order-1'>
+        <div class='relative'>
+          <div
+            class='absolute -left-4 -top-4 h-24 w-24 border-l-2 border-t-2 border-primary'
+          >
+          </div>
+
+          <img
+            src='https://res.cloudinary.com/dciovdqaf/image/upload/v1792790652/HENKA_WEB/mesa-de-trabajo.jpg'
+            alt='Estudio HENKA: mesa de trabajo con carpetas, prendas, planchas de dtf y de sublimado, más otros elementos de trabajo'
+            class='shadow-xl '
+          />
+        </div>
+      </div>
+
+      <div class='order-1 lg:order-2'>
+        <span class='text-primary uppercase tracking-[0.2em] text-sm'>
+          EL TOQUE HUMANO
+        </span>
+
+        <div class='mt-4'>
+          <SectionTitle title='Diseño, técnica y atención al detalle' />
+        </div>
+
+        <Paragraph>
+          En HENKA creemos que un buen producto personalizado empieza mucho
+          antes de imprimir. Escuchamos cada idea, elegimos la técnica más
+          adecuada y cuidamos cada etapa para lograr un resultado que realmente
+          represente a quien lo va a usar.
+        </Paragraph>
+
+        <Paragraph>
+          Trabajamos de forma personalizada, sin procesos masivos ni soluciones
+          genéricas. Ya sea una remera para una academia, un regalo único o
+          productos para una empresa, cada pedido recibe la misma atención desde
+          el diseño hasta la entrega.
+        </Paragraph>
+
+        <div class='mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8'>
+          <div>
+            <p class='font-display text-4xl text-primary'>100%</p>
+
+            <p class='label text-sm'>Personalizado</p>
+          </div>
+
+          <div>
+            <p class='font-display text-4xl text-primary'>Made in</p>
+
+            <p class='label text-sm'>Mar del Plata</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

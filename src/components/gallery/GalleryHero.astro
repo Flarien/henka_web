@@ -1,0 +1,39 @@
+---
+import Container from '../ui/Container.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Section from '../ui/Section.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+
+const filters = [
+  { label: 'Todo', value: 'todo' },
+  { label: 'Aikido', value: 'aikido' },
+  { label: 'Argentina', value: 'argentina' },
+  { label: 'Personalizados', value: 'personalizados' },
+];
+---
+
+<Section>
+  <Container>
+    <span class='label text-primary'>Galería</span>
+
+    <div id='gallery-heading'>
+      <SectionTitle title='Trabajos realizados y colecciones' />
+      <Paragraph>
+        Una selección de piezas desarrolladas en HENKA. Cada trabajo refleja un
+        proceso de diseño, impresión y personalización pensado para durar.
+      </Paragraph>
+    </div>
+
+    <div id='gallery-filters' class='mt-10 flex flex-wrap gap-3'>
+      {filters.map((filter) => (
+        <a
+          data-filter-value={filter.value}
+          href={filter.value === 'todo' ? '/galeria' : `/galeria?coleccion=${filter.value}`}
+          class='rounded-henka border px-5 py-2 label transition-all duration-200 border-border text-muted hover:border-primary hover:text-text'
+        >
+          {filter.label}
+        </a>
+      ))}
+    </div>
+  </Container>
+</Section>

@@ -1,0 +1,39 @@
+---
+import { gallery } from '../../data/gallery';
+import GalleryCard from './GalleryCard.astro';
+---
+
+<div id='gallery-grid' class='columns-1 gap-8 sm:columns-2 lg:columns-3'>
+  {
+    gallery.map((item) => (
+      <div
+        class='gallery-item mb-8 break-inside-avoid'
+        data-collection={item.collection}
+      >
+        <GalleryCard item={item} />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  document
+    .querySelectorAll<HTMLButtonElement>('[data-open-gallery]')
+    .forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const slug = btn.getAttribute('data-open-gallery');
+        const dialog = document.getElementById(
+          `modal-${slug}`,
+        ) as HTMLDialogElement | null;
+        dialog?.showModal();
+      });
+    });
+
+  document
+    .querySelectorAll<HTMLDialogElement>('dialog[id^="modal-"]')
+    .forEach((dialog) => {
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    });
+</script>

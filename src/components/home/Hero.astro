@@ -1,0 +1,194 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+
+const heroImage =
+  'https://res.cloudinary.com/dciovdqaf/image/upload/v1792786935/HENKA_WEB/img_hero_henka.webp';
+---
+
+<div id='hero-wrapper' class='relative h-[200vh]'>
+  <div
+    class='sticky top-20 h-[calc(100vh-3.5rem)] flex items-center -translate-y-8 overflow-hidden'
+  >
+    <img
+      src={heroImage}
+      alt='Imagen del Hero HENKA, una remera oscura manga larga con un diseño de Aikido estampado en el frente'
+      fetchpriority='high'
+      decoding='async'
+      class='absolute inset-0 w-full h-full object-cover hero-img-fade'
+    />
+
+    <div
+      class='absolute inset-0 bg-linear-to-r from-background via-background/85 to-transparent'
+    >
+    </div>
+
+    <div class='relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-24'>
+      <div class='max-w-2xl'>
+        <div class='hero-load-up' style='animation-delay: 0.5s'>
+          <Badge>Sublimación · DTF</Badge>
+        </div>
+
+        <h1
+          class='mt-6 text-4xl md:text-5xl lg:text-6xl uppercase lg:font-semibold leading-tight font-display hero-load-left'
+          style='animation-delay: 0.7s'
+        >
+          Transformamos tus ideas en
+          <span class='text-primary ml-1.5'>piezas únicas</span>
+        </h1>
+
+        <p
+          id='hero-desc'
+          class='mt-8 text-lg max-w-xl leading-relaxed text-pretty'
+        >
+          En HENKA creamos productos personalizados para personas, marcas y
+          eventos. Cada idea merece convertirse en algo especial: diseñamos
+          piezas sobre distintos materiales, combinando calidad, dedicación y
+          atención al detalle.
+        </p>
+
+        <div id='hero-buttons' class='flex flex-wrap gap-4 mt-6'>
+          <Button href='/galeria'>Ver trabajos</Button>
+          <Button href='/contacto' variant='secondary'>Hacer un pedido</Button>
+        </div>
+      </div>
+    </div>
+    <div
+      id='hero-arrow'
+      class='absolute bottom-22 md:bottom-8 lg:bottom-3 left-1/2 -translate-x-1/2 hero-load-up'
+      style='animation-delay: 1s'
+    >
+      <svg
+        class='arrow-bounce'
+        width='32'
+        height='32'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        style='color: var(--color-primary)'
+      >
+        <path d='M12 5v14M5 12l7 7 7-7'></path>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estados iniciales */
+  #hero-desc,
+  #hero-buttons {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* ── Imagen ── */
+  .hero-img-fade {
+    opacity: 0;
+    animation: fadeIn 1.4s ease-out 0.2s forwards;
+  }
+
+  /* ── Elementos que aparecen al cargar ── */
+  .hero-load-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: loadUp 0.9s ease-out forwards;
+  }
+
+  .hero-load-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: loadLeft 0.9s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes loadUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes loadLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ── Flecha animada ── */
+  .arrow-bounce {
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
+  /* ── Accesibilidad ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img-fade,
+    .hero-load-up,
+    .hero-load-left {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .arrow-bounce {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#hero-wrapper',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      })
+      .to('#hero-desc', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'none',
+      })
+      .to(
+        '#hero-buttons',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'none',
+        },
+        '>-0.3',
+      );
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+  });
+</script>

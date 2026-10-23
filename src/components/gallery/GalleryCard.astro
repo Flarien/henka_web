@@ -1,0 +1,86 @@
+---
+import Badge from '../ui/Badge.astro';
+import { cld, cldSrcset } from '../../lib/cloudinary';
+
+const { item } = Astro.props;
+---
+
+<article
+  class='group overflow-hidden border border-border bg-surface rounded-henka'
+>
+  <button
+    type='button'
+    data-open-gallery={item.slug}
+    class='block w-full text-left'
+  >
+    <div class='garment-stage overflow-hidden'>
+      <img
+        src={cld(item.image[0], 800)}
+        srcset={cldSrcset(item.image[0], [400, 800])}
+        sizes='(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
+        alt={item.title}
+        class='garment-glow w-full h-auto transition-transform duration-500 group-hover:scale-105'
+        loading='lazy'
+        decoding='async'
+      />
+    </div>
+
+    <div class='p-6'>
+      {item.badge && <Badge>{item.badge}</Badge>}
+      <h3 class='mt-4 font-display text-2xl uppercase'>{item.title}</h3>
+      <p class='mt-2 text-muted'>{item.collectionLabel}</p>
+      <p class='mt-5 text-sm text-muted'>
+        {item.material}
+        {' · '}
+        {item.technique}
+      </p>
+    </div>
+  </button>
+</article>
+
+<dialog
+  id={`modal-${item.slug}`}
+  class='m-auto w-[90vw] max-w-2xl border border-border bg-surface p-0 text-text backdrop:bg-background/90'
+>
+  <div class='flex overflow-x-auto snap-x snap-mandatory scrollbar-hide'>
+    {
+      item.image.map((img: string) => (
+        <img
+          src={cld(img, 1200)}
+          srcset={cldSrcset(img, [800, 1200])}
+          sizes='(min-width: 768px) 672px, 90vw'
+          alt={item.title}
+          class='garment-glow w-full shrink-0 snap-center h-auto object-cover'
+          loading='lazy'
+          decoding='async'
+        />
+      ))
+    }
+  </div>
+
+  {
+    item.image.length > 1 && (
+      <p class='mt-2 text-center text-xs text-muted'>
+        Deslizá para ver detalles →
+      </p>
+    )
+  }
+
+  <div class='p-6'>
+    {item.badge && <Badge>{item.badge}</Badge>}
+    <h3 class='mt-4 font-display text-2xl uppercase'>{item.title}</h3>
+    <p class='mt-2 text-muted'>{item.collectionLabel}</p>
+    <p class='mt-4 leading-relaxed'>{item.description}</p>
+    <p class='mt-4 text-sm text-muted'>
+      {item.material}
+      {' · '}
+      {item.technique}
+    </p>
+    <form method='dialog' class='mt-6'>
+      <button
+        class='text-sm uppercase tracking-wide text-muted hover:text-primary'
+        >Cerrar</button
+      >
+    </form>
+  </div>
+</dialog>
