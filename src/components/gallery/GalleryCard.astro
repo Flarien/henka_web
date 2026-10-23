@@ -1,5 +1,6 @@
 ---
 import Badge from '../ui/Badge.astro';
+import { cld, cldSrcset } from '../../lib/cloudinary';
 
 const { item } = Astro.props;
 ---
@@ -12,12 +13,15 @@ const { item } = Astro.props;
     data-open-gallery={item.slug}
     class='block w-full text-left'
   >
-    <div class='overflow-hidden'>
+    <div class='garment-stage overflow-hidden'>
       <img
-        src={item.image[0]}
+        src={cld(item.image[0], 800)}
+        srcset={cldSrcset(item.image[0], [400, 800])}
+        sizes='(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
         alt={item.title}
-        class='w-full h-auto transition-transform duration-500 group-hover:scale-105'
+        class='garment-glow w-full h-auto transition-transform duration-500 group-hover:scale-105'
         loading='lazy'
+        decoding='async'
       />
     </div>
 
@@ -42,9 +46,13 @@ const { item } = Astro.props;
     {
       item.image.map((img: string) => (
         <img
-          src={img}
+          src={cld(img, 1200)}
+          srcset={cldSrcset(img, [800, 1200])}
+          sizes='(min-width: 768px) 672px, 90vw'
           alt={item.title}
-          class='w-full shrink-0 snap-center h-auto object-cover'
+          class='garment-glow w-full shrink-0 snap-center h-auto object-cover'
+          loading='lazy'
+          decoding='async'
         />
       ))
     }
@@ -53,7 +61,7 @@ const { item } = Astro.props;
   {
     item.image.length > 1 && (
       <p class='mt-2 text-center text-xs text-muted'>
-        Deslizá para ver más ángulos →
+        Deslizá para ver detalles →
       </p>
     )
   }
