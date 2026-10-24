@@ -216,6 +216,100 @@ export const gallery: GalleryItem[] = [
 
     badge: "",
   },
+  {
+    slug: "taza-magica-cecilia1",
+
+    title: "Taza Mágica Personalizada",
+
+    collection: "personalizados",
+
+    collectionLabel: 'Colección Personalizados',
+
+    description: "Taza mágica personalizada con diseño único.",
+
+    image: ["/v1792800535/HENKA_WEB/personalizados/taza-magica-cecilia1.png","/v1792800535/HENKA_WEB/personalizados/taza-magica-cecilia2.png"],
+
+    material: "Taza cerámica AAA",
+
+    technique: "Sublimación",
+
+    badge: "",
+  },
+    {
+    slug: "mouse-pad",
+
+    title: "Mouse Pad Personalizado",
+
+    collection: "personalizados",
+
+    collectionLabel: 'Colección Personalizados',
+
+    description: "Mouse Pad personalizado con diseño único.",
+
+    image: ["/v1792800535/HENKA_WEB/personalizados/mouse-pad.png"],
+
+    material: "Mouse Pad de goma y tela",
+
+    technique: "Sublimación",
+
+    badge: "NUEVO",
+  },
+  {
+    slug: "toallla-y-llavero-bandera-comunidad-sordos1",
+
+    title: "Toalla y Llavero Bandera Comunidad Sordos",
+
+    collection: "personalizados",
+
+    collectionLabel: 'Colección Personalizados',
+
+    description: "Toalla y Llavero Bandera Comunidad Sordos",
+
+    image: ["/v1792800535/HENKA_WEB/personalizados/toallla-y-llavero-bandera-comunidad-sordos1.png","/v1792800535/HENKA_WEB/personalizados/toallla-y-llavero-bandera-comunidad-sordos2.png"],
+
+    material: "Llaveros de acrílico y toalla de algodón",
+
+    technique: "Sublimación",
+
+    badge: "",
+  },
+    {
+    slug: "tazas-aikido2",
+
+    title: "Tazas Aikido",
+
+    collection: "aikido",
+
+    collectionLabel: 'Colección Aikido',
+
+    description: "Tazas personalizadas de Aikido.",
+
+    image: ["/v1792784486/HENKA_WEB/aikido/tazas-aikido2.png"],
+
+    material: "Taza cerámica AAA",
+
+    technique: "Sublimación",
+
+    badge: "",
+  },  {
+    slug: "tazas-aikido1",
+
+    title: "Tazas Aikido",
+
+    collection: "aikido",
+
+    collectionLabel: 'Colección Aikido',
+
+    description: "Tazas personalizadas de Aikido.",
+
+    image: ["/v1792784486/HENKA_WEB/aikido/tazas-aikido1.png"],
+
+    material: "Taza cerámica AAA",
+
+    technique: "Sublimación",
+
+    badge: "",
+  },  
 ];
 
 export const collectionMeta: Record<string, { title: string; description: string }> = {
